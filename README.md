@@ -1,16 +1,16 @@
 # Flask with uWSGi behind Nginx: All Dockerized with Docker Compose
 
-This repo is can be used as a starter project to stand-up a Flask REST API integrated with the uWSGI application server. This can be run locally with the use of Docker containers and Docker Compose.
+This repo can be used as a starter project to stand-up a Flask REST API. It is integrated with the uWSGI application server. This can be run locally on a laptop with the use of Docker containers and Docker Compose. Deploying with Docker containers prevents the laptop system from being "polluted" with the required dependencies of the project.
 
 Features:
 
 - Utilizes Flask, Flask-RESTful, Flask-JWT, SQLAlchemy
-- Basic REST API for a store having simple items
-- SQLAlchemy ORM integrationwith simple SQLite DB
-- Basic example of JWT protection around the REST API, simple User model
-- Nginx reverse proxy in front of uWSGI
+- Basic REST API for a store having a simple inventory of items
+- SQLAlchemy ORM integration with a SQLite DB
+- Basic example of JWT authentication protection around the REST API, simple User model
+- Nginx reverse proxy in front of the uWSGI app server
 - Starter ini and conf files for uWSGI and Nginx
-- Just works
+- Just works: clone repo and run `docker-compose up`
 
 ## How to Run
 
