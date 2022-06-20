@@ -21,3 +21,128 @@ cd flask-uwsgi-nginx-dockerized.git
 docker-compose up
 # Test API with cURL or Postman
 ```
+
+## APP REST API
+
+### Users and JWT
+
+```shell
+# Create a user
+POST /register
+{
+    "username": "fubar",
+    "password": "asdf"
+}
+```
+
+```shell
+# Authenticate with JWT and get a token
+POST /auth
+{
+    "username": "fubar",
+    "password": "asdf"
+}
+```
+
+## Stores
+
+```shell
+# Create a Store
+POST /stores
+{
+    "name": "store_name"
+}
+
+# Get a list of all Stores
+GET /stores
+
+# output
+{
+    "stores": [
+        {
+            "id": 1,
+            "name": "store_name",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "item_name",
+                    "price": 10.99,
+                    "store_id": 1
+                }
+            ]
+        }
+    ]
+}
+
+# Get a Store by ID
+GET /stores/<int:id>
+
+#output
+{
+    "id": 1,
+    "name": "store_name",
+    "items": [
+        {
+            "id": 1,
+            "name": "item_name",
+            "price": 15.99,
+            "store_id": 1
+        }
+    ]
+}
+
+# Delete a Store by ID
+DELETE /stores/<int:id>
+
+```
+
+## Items
+
+```shell
+# Create an Item
+POST /items
+{
+    "name": "item_name",
+    "price": 15.99,
+    "store_id": 1
+}
+
+# Get a list of all Items
+GET /items
+
+# output
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "item_name",
+            "price": 15.99,
+            "store_id": 1
+        }
+    ]
+}
+
+# Get an Item by ID
+GET /items/<int:id>
+
+#output
+{
+    "id": 1,
+    "name": "item_name",
+    "price": 15.99,
+    "store_id": 1
+}
+
+
+# Update an Item by ID
+PUT /items/<int:id>
+{
+    "name": "item_name",
+    "price": 10.99,
+    "store_id": 1
+}
+
+
+# Delete an Item by ID
+DELETE /items/<int:id>
+```
