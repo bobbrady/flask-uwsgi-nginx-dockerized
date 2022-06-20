@@ -1,0 +1,28 @@
+# Dockerfile-flask
+
+FROM python:3.9
+
+# Dir where app will deploy and run
+
+ENV APP /app
+
+RUN mkdir $APP
+WORKDIR $APP
+
+# App runs on port 5000
+
+EXPOSE 5000
+
+# Copy over Pip frozen dependencies
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+# Copy over code base dir
+
+COPY . .
+
+# Run uWSGI with its config
+
+CMD [ "uwsgi", "--ini", "app.ini" ]
