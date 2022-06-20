@@ -28,8 +28,8 @@ This project provides a simple Item Store schema to exercise JWT and the SQLAlch
 
 **Model Entities**
 
-- Users: Stand-Alone for Auth to API only
-- Stores to Item: 1-to-Many, lazy loading
+- User: Stand-Alone for Auth to API only
+- Store to Item: 1-to-Many, Lazy Loading
 
 ### Users and JWT
 
